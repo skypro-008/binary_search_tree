@@ -40,6 +40,11 @@ def test_bst_insert_right_right(bst_root):
     assert bst_root.root.right.right.data['id'] == 60
 
 
+def test_bst_search_empty():
+    bst = BinarySearchTree()
+    assert bst.search(40) is None
+
+
 @pytest.mark.parametrize('data_id, data', [(40, {'id': 40}),
                                            (30, {'id': 30}),
                                            (25, {'id': 25}),
@@ -48,6 +53,7 @@ def test_bst_insert_right_right(bst_root):
                                            (45, {'id': 45}),
                                            (60, {'id': 60}),
                                            (444, None),
+                                           (4, None),
                                            ])
 def test_bst_search(bst_full, data_id, data):
     assert bst_full.search(data_id) == data
